@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "7818fba8-38f7-4cba-a605-1e4b0f2ef871",
+		"name": "GREENINT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37571434"
+	},
+	"item": [
+		{
+			"name": "SOCMINT",
+			"item": [
+				{
+					"name": "Reddit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Subreddit acceptFollowers is true\", function () {\r",
+									"    pm.expect(pm.response.json().Data.subredditAboutInfo.t5_9k181e.acceptFollowers).to.be.true;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// pm.test(\"Subreddit creation date is 09/10/2023\", function () {\r",
+									"//     var subredditCreated = new Date(pm.response.json().Data.subredditAboutInfo.t5_9k181e.created * 1000); // converting Unix timestamp to milliseconds\r",
+									"//     var expectedDate = new Date(\"09/10/2023\");\r",
+									"//     pm.expect(subredditCreated.toDateString()).to.equal(expectedDate.toDateString());\r",
+									"// });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\":\"asharbinkhalil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000//scrap/reddit"
+					},
+					"response": []
+				},
+				{
+					"name": "Facebook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Combined test for home town and name fields\", function () {\r",
+									"    var responseData = pm.response.json();\r",
+									"    pm.expect(responseData.Data.home_town).to.equal('Chakwal, Pakistan');\r",
+									"    pm.expect(responseData.Data.name).to.equal('Ashar Khalil');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\": \"asharbinkhalil\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000//scrap/facebook"
+					},
+					"response": []
+				},
+				{
+					"name": "Instagram",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Full name is a specific value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.Data.full_name).to.equal(\"Nemrah Ahmed\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\":\"nemrah_ahmad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000//scrap/instagram"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to check if the Reddit ID is equal to 'leqs10yz'\r",
+							"pm.test(\"Reddit ID is equal to 'leqs10yz'\", function () {\r",
+							"    pm.expect(pm.response.json().Data.Reddit.id).to.equal('leqs10yz');\r",
+							"});\r",
+							"\r",
+							"// Test to check if the GitHub 'created_at' field is equal to '2020-07-24T17:23:05Z'\r",
+							"pm.test(\"GitHub 'created_at' field is equal to '2020-07-24T17:23:05Z'\", function () {\r",
+							"    pm.expect(pm.response.json().Data.GitHub.created_at).to.equal('2020-07-24T17:23:05Z');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\": \"asharbinkhalil\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/username/search"
+			},
+			"response": []
+		},
+		{
+			"name": "Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check if the response for CNIC value equals 6110120276845\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    responseData.Data.CNIC.forEach((cnic) => {\r",
+							"        pm.expect(cnic).to.equal('6110120276845');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Phone\": \"3215176330\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000//phone/search"
+			},
+			"response": []
+		},
+		{
+			"name": "Email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check if email_to_beatstar username is equal to danialspotify123\", function () {\r",
+							"    var responseData = pm.response.json();\r",
+							"    pm.expect(responseData.Data.email_to_beatstar.username).to.equal('danialspotify123');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\": \"danialspotify123@gmail.com\",\r\n    \"SelectedModules\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/email/search"
+			},
+			"response": []
+		}
+	]
+}
