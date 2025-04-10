@@ -3,7 +3,7 @@
 # GreenINT-Testing-Postman
 
 ## Introduction
-This repository contains a Postman collection for testing various API endpoints related to social media and user information. The collection includes requests for Reddit, Facebook, Instagram, Username, Phone, and Email endpoints, along with associated test scripts to validate the responses.
+This repository contains a Postman collection for testing various API endpoints related to social media and user information of GreenINT. The collection includes requests for Reddit, Facebook, Instagram, Username, Phone, and Email endpoints, along with associated test scripts to validate the responses.
 
 ## Prerequisites
 - Postman installed on your machine
